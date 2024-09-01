@@ -1,0 +1,60 @@
+#include <iostream>
+#include <string>
+
+std::string listFiles();
+std::string makeDirectory(const std::string& directoryName);
+std::string switchDirectory(const std::string& directoryName);
+
+int main() {
+    while (true) {
+        std::cout << "\nMAIN MENU\n";
+        std::cout << "1. List Files\n";
+        std::cout << "2. Make New Directory\n";
+        std::cout << "3. Switch Directory\n";
+        std::cout << "4. Exit Program\n";
+        std::cout << "Select an option: ";
+        
+        int userChoice;
+        std::cin >> userChoice;
+
+        switch (userChoice) {
+            case 1:
+                std::cout << listFiles();
+                break;
+            case 2: {
+                std::cout << "Enter the name for the new directory: ";
+                std::string directoryName;
+                std::cin >> directoryName;
+                std::cout << makeDirectory(directoryName);
+                break;
+            }
+            case 3: {
+                std::cout << "Enter the directory to switch to: ";
+                std::string directoryName;
+                std::cin >> directoryName;
+                std::cout << switchDirectory(directoryName);
+                break;
+            }
+            case 4:
+                std::cout << "Exiting the program...\n";
+                return 0;
+            default:
+                std::cout << "Invalid option. Please try again.\n";
+        }
+        std::cout << "Press Enter to proceed...";
+        std::cin.ignore();
+        std::cin.get();
+    }
+}
+
+std::string listFiles() {
+    return "Files in Current Directory:\n1. file1.txt\n2. file2.cpp\n3. report.doc\n4. image.png\n";
+}
+
+std::string makeDirectory(const std::string& directoryName) {
+    return "Successfully created directory: '" + directoryName + "'!\n";
+}
+
+std::string switchDirectory(const std::string& directoryName) {
+    return "Current Directory: C:\\Users\\UserName\\" + directoryName + "\n";
+}
