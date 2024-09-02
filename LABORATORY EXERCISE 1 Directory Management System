@@ -7,15 +7,6 @@
 namespace fs = std::filesystem;
 using namespace std;
 
-class Directory
-{
-public: 
-    long phoneno;
-    string fname,  lname;
-
-    Directory(long phoneno = 0,  string fname = "",  string lname = "")
-        :  phoneno(phoneno),  fname(fname),  lname(lname) {}
-};
 
 void listAllFiles(const string& path) {
     cout << "List of all Files: \n";
